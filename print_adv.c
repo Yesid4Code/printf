@@ -19,7 +19,7 @@ int print_binary(va_list arg)
 
 	for (i = 1; i < 32; i++)
 	{
-		val/= 2;
+		val = val / 2;
 		num[i] = (number / val) % 2;
 	}
 	for (i = 0; i < 32; i++)
@@ -33,7 +33,6 @@ int print_binary(va_list arg)
 		}
 	}
 	return (j);
-}
 }
 
 /**
@@ -76,8 +75,14 @@ int print_rot13(va_list arg)
 	int length = 0;
 	char *s = va_arg(arg, char *);
 
-	printf("here I am");
-	length = _strlen(s);
-	_rot13(s);
+	if (s)
+	{
+		length = _strlen(s);
+		_rot13(s);
+	}
+	else
+	{
+		return (-1);
+	}
 	return (length);
 }
