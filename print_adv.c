@@ -7,27 +7,33 @@
  */
 int print_binary(va_list arg)
 {
-	int i, cout;
-	int num = va_arg(arg, int);
-	char k[1];
-	int arraybin[32];
+	unsigned int num[32];
+	unsigned int i, val, number, count = 0;
+	int j = 0;
+	char buf[1];
 
-	i = cout = 0;
-	while (num != 0)
+
+	number = va_arg(arg, unsigned int);
+	val = 2147483648;
+	num[0] = number / val;
+
+	for (i = 1; i < 32; i++)
 	{
-		arraybin[i] = num % 2;
-		num = num / 2;
-		i++;
+		val/= 2;
+		num[i] = (number / val) % 2;
 	}
-	i--;
-	while (i >= 0)
+	for (i = 0; i < 32; i++)
 	{
-		k[0] = (arraybin[i] + 48);
-		write(1, &k, 1);
-		i--;
-		cout++;
+		count += num[i];
+		if (count != 0 || i == 31)
+		{
+			buf[0] = (num[i] + 48);
+			write(1, buf, 1);
+			j++;
+		}
 	}
-	return (cout);
+	return (j);
+}
 }
 
 /**
