@@ -1,4 +1,4 @@
-				II11. C - printf - We write our own printf function.
+				0x11. C - printf - We write our own printf function.
 
 # Resources
 
@@ -21,7 +21,7 @@
 
 ## printf
 
-Is a function nativ3 of the C programming language, used to print a string format. the prototype can be something like this:
+Is a function native of the C programming language, used to print a string format. the prototype can be something like this:
 
 
 ~~~
